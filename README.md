@@ -48,7 +48,7 @@ Premium **[Django Template](https://www.creative-tim.com/templates/django)** cra
 
 ```bash
 $ # Get the code
-$ git clone https://github.com/creativetimofficial/soft-ui-dashboard-pro-django.git
+$ unzip soft-ui-dashboard-pro-django.zip
 $ cd soft-ui-dashboard-pro-django
 $
 $ # Virtualenv modules installation (Unix based systems)
@@ -204,7 +204,7 @@ The application can be easily executed in a docker container. The steps:
 > Get the code
 
 ```bash
-$ git clone https://github.com/creativetimofficial/soft-ui-dashboard-pro-django.git
+$ unzip soft-ui-dashboard-pro-django.zip
 $ cd soft-ui-dashboard-pro-django
 ```
 
