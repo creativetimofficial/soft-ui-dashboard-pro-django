@@ -2,16 +2,20 @@
 
 Premium **[Django Template](https://www.creative-tim.com/templates/django)** crafted on top of **Soft UI Dashboard PRO**, a modern Bootstrap 5 design. Start your development with a modern Bootstrap 5 Admin template for Django. Soft UI Dashboard is built with over 70 individual components, giving you the freedom of choosing and combining. If you want to code faster, with a smooth workflow, then you should try this template carefully developed with Django, a well-known Python Framework.
 
-> Features
+> **NOTE**: This product `requires a License` in order to access the theme. During the purchase, a `GitHub Access TOKEN` is provided. 
 
-- Up-to-date [dependencies](./requirements.txt): **Django 3.2.6 LTS**
-- [SCSS compilation](#recompile-css) via **Gulp**
-- UI Kit: **Soft UI Dashboard** (Free Version)
-- Django Codebase - provided by **[AppSeed](https://appseed.us/)**
-- UI-Ready app, SQLite Database, Django Native ORM
-- Modular design, clean code-base
-- Session-Based Authentication, Forms validation
-- Deployment scripts: Docker, Gunicorn / Nginx
+<br />
+
+## Features: 
+
+- ✅ `Up-to-date Dependencies`
+- ✅ `Design`: [Django Theme Soft](https://github.com/app-generator/django-admin-soft-pro) - `PRO Version`
+- ✅ `Sections` covered by the design:
+  - ✅ **Admin section** (reserved for superusers)
+  - ✅ **Authentication**: `Django.contrib.AUTH`, Registration
+  - ✅ **All Pages** available in for ordinary users 
+- ✅ `Docker`
+- 🚀 Deployment: `CI/CD` flow via `Render`
 
 <br />
 
@@ -36,7 +40,7 @@ Premium **[Django Template](https://www.creative-tim.com/templates/django)** cra
 
 ## Demo
 
-> To authenticate use the default credentials ***test / ApS12_ZZs8*** or create a new user on the **registration page**.
+> To authenticate use the default credentials ***test / PaSS_123*** or create a new user on the **registration page**.
 
 - **Soft UI Dashboard Django** [Login Page](https://www.creative-tim.com/live/soft-ui-dashboard-pro-django)
 
@@ -44,96 +48,97 @@ Premium **[Django Template](https://www.creative-tim.com/templates/django)** cra
 
 ## Quick start
 
-> UNZIP the sources or clone the repository. After getting the code, open a terminal and navigate to the working directory, with product source code.
+> UNZIP the sources or clone this repository. After getting the code, open a terminal and navigate to the working directory, with product source code.
+
+<br />
+
+> Export `GITHUB_TOKEN` in the environment. The value is provided during purchase. 
+
+This is required because the project has a private REPO dependency: `github.com/app-generator/priv-django-admin-soft-pro`
 
 ```bash
-$ # Get the code
-$ unzip soft-ui-dashboard-pro-django.zip
-$ cd soft-ui-dashboard-pro-django
-$
-$ # Virtualenv modules installation (Unix based systems)
-$ virtualenv env
-$ source env/bin/activate
-$
-$ # Virtualenv modules installation (Windows based systems)
-$ # virtualenv env
-$ # .\env\Scripts\activate
-$
-$ # Install modules - SQLite Storage
-$ pip3 install -r requirements.txt
-$
-$ # Create tables
-$ python manage.py makemigrations
-$ python manage.py migrate
-$
-$ # Start the application (development mode)
-$ python manage.py runserver # default port 8000
-$
-$ # Start the app - custom port
-$ # python manage.py runserver 0.0.0.0:<your_port>
-$
-$ # Access the web app in browser: http://127.0.0.1:8000/
+$ export GITHUB_TOKEN='TOKEN_HERE'  # for Linux, Mac
+$ set GITHUB_TOKEN='TOKEN_HERE'     # Windows CMD
+$ $env:GITHUB_TOKEN = 'TOKEN_HERE'  # Windows powerShell 
 ```
 
-> Note: To use the app, please access the registration page and create a new user. After authentication, the app will unlock the private pages.
+<br />
+
+> 👉 Install modules via `VENV`.
+
+
+```bash
+$ virtualenv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+```
+
+<br />
+
+> 👉 Edit the `.env` using the template `.env.sample`. 
+
+```env
+
+# True for development, False for production
+DEBUG=True
+
+```
+
+<br />
+
+> 👉 Set Up Database
+
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+<br />
+
+> 👉 Create the Superuser
+
+```bash
+$ python manage.py createsuperuser
+```
+
+<br />
+
+> 👉 Start the app
+
+```bash
+$ python manage.py runserver
+```
+
+At this point, the app runs at `http://127.0.0.1:8000/`. 
 
 <br />
 
 ## Documentation
+
 The documentation for the **Soft UI Dashboard PRO Django** is hosted at our [website](https://www.creative-tim.com/learning-lab/bootstrap/build-tools-pro/soft-ui-dashboard).
 
 <br />
 
-## Code-base structure
+## File Structure
 
-The project is coded using a simple and intuitive structure presented bellow:
+Within the download you'll find the following directories and files:
 
 ```bash
 < PROJECT ROOT >
    |
-   |-- core/                               # Implements app configuration
-   |    |-- settings.py                    # Defines Global Settings
-   |    |-- wsgi.py                        # Start the app in production
-   |    |-- urls.py                        # Define URLs served by all apps/nodes
+   |-- core/                   # Implements app configuration
+   |    |-- settings.py        # Defines Global Settings
+   |    |-- wsgi.py            # Start the app in production
+   |    |-- urls.py            # Define URLs served by all apps/nodes
    |
-   |-- apps/
+   |-- home/
    |    |
-   |    |-- home/                          # A simple app that serve HTML files
-   |    |    |-- views.py                  # Serve HTML pages for authenticated users
-   |    |    |-- urls.py                   # Define some super simple routes  
-   |    |
-   |    |-- authentication/                # Handles auth routes (login and register)
-   |    |    |-- urls.py                   # Define authentication routes  
-   |    |    |-- views.py                  # Handles login and registration  
-   |    |    |-- forms.py                  # Define auth forms (login and register) 
-   |    |
-   |    |-- static/
-   |    |    |-- <css, JS, images>         # CSS files, Javascripts files
-   |    |
-   |    |-- templates/                     # Templates used to render pages
-   |         |-- includes/                 # HTML chunks and components
-   |         |    |-- navigation.html      # Top menu component
-   |         |    |-- sidebar.html         # Sidebar component
-   |         |    |-- footer.html          # App Footer
-   |         |    |-- scripts.html         # Scripts common to all pages
-   |         |
-   |         |-- layouts/                   # Master pages
-   |         |    |-- base-fullscreen.html  # Used by Authentication pages
-   |         |    |-- base.html             # Used by common pages
-   |         |
-   |         |-- accounts/                  # Authentication pages
-   |         |    |-- login.html            # Login page
-   |         |    |-- register.html         # Register page
-   |         |
-   |         |-- home/                      # UI Kit Pages
-   |              |-- index.html            # Index page
-   |              |-- 404-page.html         # 404 page
-   |              |-- *.html                # All other pages
+   |    |-- views.py           # Serve HTML pages for authenticated users
+   |    |-- urls.py            # Define some super simple routes  
    |
-   |-- requirements.txt                     # Development modules - SQLite storage
    |
-   |-- .env                                 # Inject Configuration via Environment
-   |-- manage.py                            # Start the app - Django default start script
+   |-- manage.py               # Start the app - Django default start script
+   |-- requirements.txt        # Development modules - SQLite storage
    |
    |-- ************************************************************************
 ```
@@ -149,72 +154,16 @@ The project is coded using a simple and intuitive structure presented bellow:
 
 <br />
 
-## Recompile CSS
+## Deploy on [Render](https://render.com/)
 
-To recompile SCSS files, follow this setup:
+- Create a Blueprint instance
+  - Go to https://dashboard.render.com/blueprints this link.
+- Click `New Blueprint Instance` button.
+- Connect your `repo` which you want to deploy.
+- Fill the `Service Group Name` and click on `Update Existing Resources` button.
+- After that your deployment will start automatically.
 
-<br />
-
-**Step #1** - Install tools
-
-- [NodeJS](https://nodejs.org/en/) 12.x or higher
-- [Gulp](https://gulpjs.com/) - globally 
-    - `npm install -g gulp-cli`
-- [Yarn](https://yarnpkg.com/) (optional) 
-
-<br />
-
-**Step #2** - Change the working directory to `assets` folder
-
-```bash
-$ cd apps/static/assets
-```
-
-<br />
-
-**Step #3** - Install modules (this will create a classic `node_modules` directory)
-
-```bash
-$ npm install
-// OR
-$ yarn
-```
-
-<br />
-
-**Step #4** - Edit & Recompile SCSS files 
-
-```bash
-$ gulp scss
-```
-
-The generated file is saved in `static/assets/css` directory.
-
-<br /> 
-
-## Deployment
-
-The app is provided with a basic configuration to be executed in [Docker](https://www.docker.com/), [Gunicorn](https://gunicorn.org/), and [Waitress](https://docs.pylonsproject.org/projects/waitress/en/stable/).
-
-### [Docker](https://www.docker.com/) execution
----
-
-The application can be easily executed in a docker container. The steps:
-
-> Get the code
-
-```bash
-$ unzip soft-ui-dashboard-pro-django.zip
-$ cd soft-ui-dashboard-pro-django
-```
-
-> Start the app in Docker
-
-```bash
-$ sudo docker-compose pull && sudo docker-compose build && sudo docker-compose up -d
-```
-
-Visit `http://localhost:85` in your browser. The app should be up & running.
+At this point, the product should be LIVE.
 
 <br />
 
@@ -279,4 +228,4 @@ If you have questions or need help integrating the product please [contact us](h
 <br />
 
 ---
-[Soft UI Dashboard PRO Django](https://www.creative-tim.com/product/soft-ui-dashboard-pro-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us)
+[Soft UI Dashboard PRO Django](https://www.creative-tim.com/product/soft-ui-dashboard-pro-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us).
