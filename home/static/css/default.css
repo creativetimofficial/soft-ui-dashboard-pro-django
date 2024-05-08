@@ -1,0 +1,12 @@
+.glow-border {
+    transition: border-color 0.3s ease; 
+}
+
+.glow-border:hover {
+    cursor: pointer;
+    border-color: var(--usek-turquoise);
+    box-shadow: 0 0 5px var(--usek-turquoise), 
+    0 0 10px var(--usek-turquoise),
+    0 0 15px var(--usek-turquoise);
+
+}

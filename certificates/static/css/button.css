@@ -1,0 +1,21 @@
+
+.action-button-style {
+    display: inline-block;
+    background-color: var(--usek-indigo-blue);
+    color: #ffffff;
+    padding: 5px; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%; 
+    cursor: pointer;
+    width: 30px; 
+    height: 30px;
+    line-height: 20px; 
+    font-size: 14px; 
+    transition: transform 0.2s ease;
+  }
+  
+  .action-button-style:hover {
+    transform: scale(1.1); 
+    color: white !important;
+  }
