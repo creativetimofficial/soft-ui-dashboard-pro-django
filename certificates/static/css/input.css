@@ -1,9 +1,0 @@
-.custom-input:focus {
-  outline: solid 2px var(--usek-indigo-blue) !important;
-  border: 1px solid var(--usek-indigo-blue);
-}
-
-.input-group .form-control:focus {
-  border-left: 1px solid var(--usek-indigo-blue) !important;
-  border-right: 1px solid var(--usek-indigo-blue) !important;
-}
