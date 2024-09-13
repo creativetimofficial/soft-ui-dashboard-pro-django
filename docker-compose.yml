@@ -1,12 +1,16 @@
-version: '3.8'
 services:
   appseed-app:
     container_name: appseed_app
     restart: always
-    build: .
+    build:
+      context: .
+      args:
+        GITHUB_TOKEN: ${GITHUB_TOKEN}  # Passing GitHub token during build
     networks:
       - db_network
       - web_network
+    env_file:
+      - .env  # Loading environment variables, including GITHUB_TOKEN
   nginx:
     container_name: nginx
     restart: always
@@ -24,4 +28,3 @@ networks:
     driver: bridge
   web_network:
     driver: bridge
- 

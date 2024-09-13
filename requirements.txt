@@ -4,5 +4,7 @@ python-dotenv
 whitenoise
 git+https://${GITHUB_TOKEN}@github.com/app-generator/priv-django-admin-soft-pro@v1.0.11#egg=django-admin-soft-pro
 
+
+
 # psycopg2-binary
 # mysqlclient
