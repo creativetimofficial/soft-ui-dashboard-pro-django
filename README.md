@@ -2,20 +2,24 @@
 
 Premium **[Django Template](https://www.creative-tim.com/templates/django)** crafted on top of **Soft UI Dashboard PRO**, a modern Bootstrap 5 design. Start your development with a modern Bootstrap 5 Admin template for Django. Soft UI Dashboard is built with over 70 individual components, giving you the freedom of choosing and combining. If you want to code faster, with a smooth workflow, then you should try this template carefully developed with Django, a well-known Python Framework.
 
-> **NOTE**: This product `requires a License` in order to access the theme. During the purchase, a `GitHub Access TOKEN` is provided. 
+> NOTE: Starter provided in partnership with [App-Generator](https://app-generator.dev/), an open-source platform for developers
 
 <br />
 
 ## Features: 
 
-- ✅ `Up-to-date Dependencies`
-- ✅ `Design`: [Django Theme Soft](https://github.com/app-generator/django-admin-soft-pro) - `PRO Version`
-- ✅ `Sections` covered by the design:
-  - ✅ **Admin section** (reserved for superusers)
-  - ✅ **Authentication**: `Django.contrib.AUTH`, Registration
-  - ✅ **All Pages** available in for ordinary users 
-- ✅ `Docker`
-- 🚀 Deployment: `CI/CD` flow via `Render`
+- Simple, Easy-to-Extend Codebase
+- Soft UI Dashboard Design - PRO Version Integration
+- [Dynamic DataTables](https://django-soft-dash-pro.onrender.com/dynamic-dt/product/) - [Generate Data Tables with Django](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html) (no coding)
+- [Dynamic API](https://django-soft-dash-pro.onrender.com/api/product/) - [Generate API Endpoints with Django](https://app-generator.dev/docs/developer-tools/dynamic-api.html) (no coding)
+- [Charts](https://django-soft-dash-pro.onrender.com/charts/) via ApexCharts.js
+- Media Files Manager
+- Async Tasks (celery)
+- [CLI Tools for Django](https://app-generator.dev/docs/developer-tools/django-cli/index.html) - migrate DB, manage GIT commits and   
+- Session-based Authentication, Password recovery
+- DB Persistence: SQLite (default), can be used with MySql, PgSql
+- Docker 
+- CI/CD integration for [Render](https://app-generator.dev/docs/deployment/render/index.html) 
 
 <br />
 
@@ -48,19 +52,7 @@ Premium **[Django Template](https://www.creative-tim.com/templates/django)** cra
 
 ## Quick start
 
-> UNZIP the sources or clone this repository. After getting the code, open a terminal and navigate to the working directory, with product source code.
-
-<br />
-
-> Export `GITHUB_TOKEN` in the environment. The value is provided during purchase. 
-
-This is required because the project has a private REPO dependency: `github.com/app-generator/priv-django-admin-soft-pro`
-
-```bash
-$ export GITHUB_TOKEN='TOKEN_HERE'  # for Linux, Mac
-$ set GITHUB_TOKEN='TOKEN_HERE'     # Windows CMD
-$ $env:GITHUB_TOKEN = 'TOKEN_HERE'  # Windows powerShell 
-```
+> UNZIP the sources (requires a purchase from the official product page)
 
 <br />
 
@@ -115,7 +107,7 @@ At this point, the app runs at `http://127.0.0.1:8000/`.
 
 ## Documentation
 
-The documentation for the **Soft UI Dashboard PRO Django** is hosted at our [website](https://www.creative-tim.com/learning-lab/bootstrap/build-tools-pro/soft-ui-dashboard).
+The documentation for the **Soft UI Dashboard PRO Django** is hosted at our [website](https://app-generator.dev/docs/products/django/soft-ui-dashboard-pro/index.html).
 
 <br />
 
@@ -126,18 +118,17 @@ The project is coded using a simple and intuitive structure presented below:
 ```bash
 < PROJECT ROOT >
    |
-   |-- core/                            
+   |-- config/                            
    |    |-- settings.py                  # Project Configuration  
    |    |-- urls.py                      # Project Routing
    |
-   |-- home/
-   |    |-- views.py                     # APP Views 
-   |    |-- urls.py                      # APP Routing
-   |    |-- models.py                    # APP Models 
-   |    |-- tests.py                     # Tests  
-   |    |-- templates/                   # Theme Customisation 
-   |         |-- includes                # 
-   |              |-- custom-footer.py   # Custom Footer      
+   |-- apps/
+   |    |-- charts                        
+   |    |-- dyn_api                       
+   |    |-- dyn_dt                         
+   |    |-- pages                        
+   |    |-- file_manager                        
+   | 
    |     
    |-- requirements.txt                  # Project Dependencies
    |
@@ -146,61 +137,6 @@ The project is coded using a simple and intuitive structure presented below:
    |
    |-- ************************************************************************
 ```
-
-<br />
-
-## How to Customize 
-
-When a template file is loaded in the controller, `Django` scans all template directories starting from the ones defined by the user, and returns the first match or an error in case the template is not found. 
-The theme used to style this starter provides the following files: 
-
-```bash
-< LIBRARY_ROOT >                      # This exists in ENV: LIB/admin_soft_pro
-   |
-   |-- templates/                     # Root Templates Folder 
-   |    |          
-   |    |-- accounts/       
-   |    |    |-- signin/basic.html    # Sign IN Page
-   |    |    |-- signup/basic.html    # Sign UP Page
-   |    |
-   |    |-- includes/       
-   |    |    |-- footer.html          # Footer component
-   |    |    |-- sidebar.html         # Sidebar component
-   |    |    |-- navigation.html      # Navigation Bar
-   |    |    |-- scripts.html         # Scripts Component
-   |    |
-   |    |-- layouts/       
-   |    |    |-- base.html            # Masterpage
-   |    |    |-- base-fullscreen.html # Masterpage for Auth Pages
-   |    |
-   |    |-- pages/       
-   |         |-- widgets.html         # Widgets page
-   |         |-- messages.html        # Messaging APP Page
-   |         |-- *.html               # All other pages
-   |    
-   |-- ************************************************************************
-```
-
-When the project requires customization, we need to copy the original file that needs an update (from the virtual environment) and place it in the template folder using the same path. 
-
-> For instance, if we want to **customize the footer.html** these are the steps:
-
-- ✅ `Step 1`: create the `templates` DIRECTORY inside the `home` app
-- ✅ `Step 2`: configure the project to use this new template directory
-  - `core/settings.py` TEMPLATES section
-- ✅ `Step 3`: copy the `footer.html` from the original location (inside your ENV) and save it to the `home/templates` DIR
-  - Source PATH: `<YOUR_ENV>/LIB/admin_soft_pro/includes/footer.html`
-  - Destination PATH: `<PROJECT_ROOT>home/templates/includes/footer.html`
-
-> To speed up all these steps, the **codebase is already configured** (`Steps 1, and 2`) and a `custom footer` can be found at this location:
-
-`home/templates/includes/custom_footer.html` 
-
-By default, this file is unused because the `theme` expects `footer.html` (without the `custom_` prefix). 
-
-In order to use it, simply rename it to `footer.html`. Like this, the default version shipped in the library is ignored by Django. 
-
-In a similar way, all other files and components can be customized easily.
 
 <br />
 
@@ -246,9 +182,12 @@ We use GitHub Issues as the official bug tracker for the **Soft UI Dashboard Dja
 
 <br />
 
-## Technical Support or Questions
+## Support
 
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
+Being a product that is actively supported and improved, feel free to contact us using these funnels: 
+
+- **Creative-Tim** [Discord](https://discord.gg/haJ7ErsNY3) Server - for general product assistance and UI/UX
+- **App Generator** [Discord](https://discord.gg/fZC6hup) Server - for **Django specific questions** and assistance. 
 
 <br />
 
@@ -278,4 +217,4 @@ If you have questions or need help integrating the product please [contact us](h
 <br />
 
 ---
-[Soft UI Dashboard PRO Django](https://www.creative-tim.com/product/soft-ui-dashboard-pro-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [AppSeed](https://appseed.us).
+[Soft UI Dashboard PRO Django](https://www.creative-tim.com/product/soft-ui-dashboard-pro-django) - Provided by [Creative Tim](https://www.creative-tim.com/) and [App-Generator](https://app-generator.dev/).
