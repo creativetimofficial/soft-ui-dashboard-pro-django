@@ -9,17 +9,23 @@ Premium **[Django Template](https://www.creative-tim.com/templates/django)** cra
 ## Features: 
 
 - Simple, Easy-to-Extend Codebase
-- Soft UI Dashboard Design - PRO Version Integration
-- [Dynamic DataTables](https://django-soft-dash-pro.onrender.com/dynamic-dt/product/) - [Generate Data Tables with Django](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html) (no coding)
-- [Dynamic API](https://django-soft-dash-pro.onrender.com/api/product/) - [Generate API Endpoints with Django](https://app-generator.dev/docs/developer-tools/dynamic-api.html) (no coding)
-- [Charts](https://django-soft-dash-pro.onrender.com/charts/) via ApexCharts.js
-- Media Files Manager
-- Async Tasks (celery)
-- [CLI Tools for Django](https://app-generator.dev/docs/developer-tools/django-cli/index.html) - migrate DB, manage GIT commits and   
+- **Soft UI Dashboard PRO** Design Integration 
+- Dynamic Tables - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-datatables.html)
+- Dynamic API - read [docs](https://app-generator.dev/docs/developer-tools/dynamic-api.html)
+- Charts
+- Session-based Authentication, Password recovery
+- OAuth (GitHub & Google)
+- DB Persistence: SQLite (default), can be used with MySql, PgSql
+- [Django CLI Package](https://app-generator.dev/docs/developer-tools/django-cli/index.html)
+    - [Commit/rollback Git Changes](https://app-generator.dev/docs/developer-tools/django-cli/git-interface.html)
+    - `Backup & restore DB`
+    - [Interact with Django Core](https://app-generator.dev/docs/developer-tools/django-cli/query-django.html)
+    - `Manage Environment`
+    - `Manage Dependencies`
 - Session-based Authentication, Password recovery
 - DB Persistence: SQLite (default), can be used with MySql, PgSql
-- Docker 
-- CI/CD integration for [Render](https://app-generator.dev/docs/deployment/render/index.html) 
+- Docker, CI/CD for Render
+- [Vite](https://app-generator.dev/docs/technologies/vite/index.html) for assets management 
 
 <br />
 
